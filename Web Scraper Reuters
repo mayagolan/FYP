@@ -1,0 +1,392 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hx6rEKJXktVO"
+      },
+      "source": [
+        "# Install Relevant Libraries"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xhGgVpRmkgHw",
+        "outputId": "5e96e7a1-7319-467b-c37d-a3f476090638"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting selenium\n",
+            "  Downloading selenium-4.1.0-py3-none-any.whl (958 kB)\n",
+            "\u001b[?25l\r\u001b[K     |▍                               | 10 kB 19.2 MB/s eta 0:00:01\r\u001b[K     |▊                               | 20 kB 25.9 MB/s eta 0:00:01\r\u001b[K     |█                               | 30 kB 22.5 MB/s eta 0:00:01\r\u001b[K     |█▍                              | 40 kB 18.7 MB/s eta 0:00:01\r\u001b[K     |█▊                              | 51 kB 12.6 MB/s eta 0:00:01\r\u001b[K     |██                              | 61 kB 14.3 MB/s eta 0:00:01\r\u001b[K     |██▍                             | 71 kB 11.9 MB/s eta 0:00:01\r\u001b[K     |██▊                             | 81 kB 13.2 MB/s eta 0:00:01\r\u001b[K     |███                             | 92 kB 13.4 MB/s eta 0:00:01\r\u001b[K     |███▍                            | 102 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███▊                            | 112 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████                            | 122 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████▍                           | 133 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████▉                           | 143 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████▏                          | 153 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████▌                          | 163 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████▉                          | 174 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████▏                         | 184 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████▌                         | 194 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████▉                         | 204 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████▏                        | 215 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████▌                        | 225 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████▉                        | 235 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████▏                       | 245 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████▌                       | 256 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████▉                       | 266 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████▎                      | 276 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████▋                      | 286 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████                      | 296 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████▎                     | 307 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████▋                     | 317 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████                     | 327 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████▎                    | 337 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████▋                    | 348 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████                    | 358 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████▎                   | 368 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████▋                   | 378 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████                   | 389 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████▎                  | 399 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████▊                  | 409 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████                  | 419 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████▍                 | 430 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████▊                 | 440 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████                 | 450 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████▍                | 460 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████▊                | 471 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████                | 481 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████▍               | 491 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████▊               | 501 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████               | 512 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████▍              | 522 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████▊              | 532 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████▏             | 542 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████▌             | 552 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████▉             | 563 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████▏            | 573 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████▌            | 583 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████▉            | 593 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████▏           | 604 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████▌           | 614 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████▉           | 624 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████▏          | 634 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████▌          | 645 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████▉          | 655 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████▏         | 665 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████▋         | 675 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████         | 686 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████▎        | 696 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████▋        | 706 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████████        | 716 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████████▎       | 727 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████████▋       | 737 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████████       | 747 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████████▎      | 757 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████████▋      | 768 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████████      | 778 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████████▎     | 788 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████████▋     | 798 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████████     | 808 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████████▍    | 819 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████████▊    | 829 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████████████    | 839 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████████████▍   | 849 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████████████▊   | 860 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████████████   | 870 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████████████▍  | 880 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |█████████████████████████████▊  | 890 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████████████  | 901 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████████████▍ | 911 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |██████████████████████████████▊ | 921 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████████████ | 931 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████████████▍| 942 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |███████████████████████████████▉| 952 kB 12.8 MB/s eta 0:00:01\r\u001b[K     |████████████████████████████████| 958 kB 12.8 MB/s \n",
+            "\u001b[?25hCollecting trio-websocket~=0.9\n",
+            "  Downloading trio_websocket-0.9.2-py3-none-any.whl (16 kB)\n",
+            "Collecting trio~=0.17\n",
+            "  Downloading trio-0.19.0-py3-none-any.whl (356 kB)\n",
+            "\u001b[K     |████████████████████████████████| 356 kB 42.2 MB/s \n",
+            "\u001b[?25hCollecting urllib3[secure]~=1.26\n",
+            "  Downloading urllib3-1.26.7-py2.py3-none-any.whl (138 kB)\n",
+            "\u001b[K     |████████████████████████████████| 138 kB 67.1 MB/s \n",
+            "\u001b[?25hCollecting async-generator>=1.9\n",
+            "  Downloading async_generator-1.10-py3-none-any.whl (18 kB)\n",
+            "Requirement already satisfied: attrs>=19.2.0 in /usr/local/lib/python3.7/dist-packages (from trio~=0.17->selenium) (21.2.0)\n",
+            "Collecting outcome\n",
+            "  Downloading outcome-1.1.0-py2.py3-none-any.whl (9.7 kB)\n",
+            "Requirement already satisfied: idna in /usr/local/lib/python3.7/dist-packages (from trio~=0.17->selenium) (2.10)\n",
+            "Requirement already satisfied: sortedcontainers in /usr/local/lib/python3.7/dist-packages (from trio~=0.17->selenium) (2.4.0)\n",
+            "Collecting sniffio\n",
+            "  Downloading sniffio-1.2.0-py3-none-any.whl (10 kB)\n",
+            "Collecting wsproto>=0.14\n",
+            "  Downloading wsproto-1.0.0-py3-none-any.whl (24 kB)\n",
+            "Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from urllib3[secure]~=1.26->selenium) (2021.10.8)\n",
+            "Collecting cryptography>=1.3.4\n",
+            "  Downloading cryptography-36.0.1-cp36-abi3-manylinux_2_24_x86_64.whl (3.6 MB)\n",
+            "\u001b[K     |████████████████████████████████| 3.6 MB 53.6 MB/s \n",
+            "\u001b[?25hCollecting pyOpenSSL>=0.14\n",
+            "  Downloading pyOpenSSL-21.0.0-py2.py3-none-any.whl (55 kB)\n",
+            "\u001b[K     |████████████████████████████████| 55 kB 2.7 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: cffi>=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography>=1.3.4->urllib3[secure]~=1.26->selenium) (1.15.0)\n",
+            "Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi>=1.12->cryptography>=1.3.4->urllib3[secure]~=1.26->selenium) (2.21)\n",
+            "Requirement already satisfied: six>=1.5.2 in /usr/local/lib/python3.7/dist-packages (from pyOpenSSL>=0.14->urllib3[secure]~=1.26->selenium) (1.15.0)\n",
+            "Collecting h11<1,>=0.9.0\n",
+            "  Downloading h11-0.12.0-py3-none-any.whl (54 kB)\n",
+            "\u001b[K     |████████████████████████████████| 54 kB 1.7 MB/s \n",
+            "\u001b[?25hInstalling collected packages: sniffio, outcome, h11, cryptography, async-generator, wsproto, urllib3, trio, pyOpenSSL, trio-websocket, selenium\n",
+            "  Attempting uninstall: urllib3\n",
+            "    Found existing installation: urllib3 1.24.3\n",
+            "    Uninstalling urllib3-1.24.3:\n",
+            "      Successfully uninstalled urllib3-1.24.3\n",
+            "\u001b[31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n",
+            "requests 2.23.0 requires urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1, but you have urllib3 1.26.7 which is incompatible.\n",
+            "datascience 0.10.6 requires folium==0.2.1, but you have folium 0.8.3 which is incompatible.\u001b[0m\n",
+            "Successfully installed async-generator-1.10 cryptography-36.0.1 h11-0.12.0 outcome-1.1.0 pyOpenSSL-21.0.0 selenium-4.1.0 sniffio-1.2.0 trio-0.19.0 trio-websocket-0.9.2 urllib3-1.26.7 wsproto-1.0.0\n",
+            "Requirement already satisfied: BeautifulSoup4 in /usr/local/lib/python3.7/dist-packages (4.6.3)\n",
+            "Get:1 http://ppa.launchpad.net/c2d4u.team/c2d4u4.0+/ubuntu bionic InRelease [15.9 kB]\n",
+            "Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease\n",
+            "Hit:3 http://ppa.launchpad.net/cran/libgit2/ubuntu bionic InRelease\n",
+            "Get:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]\n",
+            "Get:5 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic InRelease [15.9 kB]\n",
+            "Get:6 https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/ InRelease [3,626 B]\n",
+            "Get:7 http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu bionic InRelease [21.3 kB]\n",
+            "Get:8 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]\n",
+            "Get:9 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]\n",
+            "Ign:10 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64  InRelease\n",
+            "Get:11 http://ppa.launchpad.net/c2d4u.team/c2d4u4.0+/ubuntu bionic/main Sources [1,822 kB]\n",
+            "Ign:12 https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64  InRelease\n",
+            "Get:13 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64  Release [696 B]\n",
+            "Hit:14 https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64  Release\n",
+            "Get:15 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64  Release.gpg [836 B]\n",
+            "Get:16 http://ppa.launchpad.net/c2d4u.team/c2d4u4.0+/ubuntu bionic/main amd64 Packages [934 kB]\n",
+            "Get:17 https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/ Packages [73.9 kB]\n",
+            "Get:18 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic/main amd64 Packages [45.3 kB]\n",
+            "Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [2,898 kB]\n",
+            "Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [2,230 kB]\n",
+            "Get:21 http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu bionic/main amd64 Packages [44.7 kB]\n",
+            "Get:22 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [11.6 kB]\n",
+            "Get:23 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [12.6 kB]\n",
+            "Get:25 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64  Packages [833 kB]\n",
+            "Get:26 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [691 kB]\n",
+            "Get:27 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1,452 kB]\n",
+            "Get:28 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2,461 kB]\n",
+            "Fetched 13.8 MB in 3s (4,693 kB/s)\n",
+            "Reading package lists... Done\n",
+            "Reading package lists... Done\n",
+            "Building dependency tree       \n",
+            "Reading state information... Done\n",
+            "The following additional packages will be installed:\n",
+            "  chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg-extra\n",
+            "Suggested packages:\n",
+            "  webaccounts-chromium-extension unity-chromium-extension\n",
+            "The following NEW packages will be installed:\n",
+            "  chromium-browser chromium-browser-l10n chromium-chromedriver\n",
+            "  chromium-codecs-ffmpeg-extra\n",
+            "0 upgraded, 4 newly installed, 0 to remove and 100 not upgraded.\n",
+            "Need to get 94.0 MB of archives.\n",
+            "After this operation, 324 MB of additional disk space will be used.\n",
+            "Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 chromium-codecs-ffmpeg-extra amd64 95.0.4638.69-0ubuntu0.18.04.1 [1,135 kB]\n",
+            "Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 chromium-browser amd64 95.0.4638.69-0ubuntu0.18.04.1 [83.6 MB]\n",
+            "Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 chromium-browser-l10n all 95.0.4638.69-0ubuntu0.18.04.1 [4,249 kB]\n",
+            "Get:4 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 chromium-chromedriver amd64 95.0.4638.69-0ubuntu0.18.04.1 [4,986 kB]\n",
+            "Fetched 94.0 MB in 1s (71.6 MB/s)\n",
+            "Selecting previously unselected package chromium-codecs-ffmpeg-extra.\n",
+            "(Reading database ... 155222 files and directories currently installed.)\n",
+            "Preparing to unpack .../chromium-codecs-ffmpeg-extra_95.0.4638.69-0ubuntu0.18.04.1_amd64.deb ...\n",
+            "Unpacking chromium-codecs-ffmpeg-extra (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "Selecting previously unselected package chromium-browser.\n",
+            "Preparing to unpack .../chromium-browser_95.0.4638.69-0ubuntu0.18.04.1_amd64.deb ...\n",
+            "Unpacking chromium-browser (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "Selecting previously unselected package chromium-browser-l10n.\n",
+            "Preparing to unpack .../chromium-browser-l10n_95.0.4638.69-0ubuntu0.18.04.1_all.deb ...\n",
+            "Unpacking chromium-browser-l10n (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "Selecting previously unselected package chromium-chromedriver.\n",
+            "Preparing to unpack .../chromium-chromedriver_95.0.4638.69-0ubuntu0.18.04.1_amd64.deb ...\n",
+            "Unpacking chromium-chromedriver (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "Setting up chromium-codecs-ffmpeg-extra (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "Setting up chromium-browser (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "update-alternatives: using /usr/bin/chromium-browser to provide /usr/bin/x-www-browser (x-www-browser) in auto mode\n",
+            "update-alternatives: using /usr/bin/chromium-browser to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode\n",
+            "Setting up chromium-chromedriver (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "Setting up chromium-browser-l10n (95.0.4638.69-0ubuntu0.18.04.1) ...\n",
+            "Processing triggers for man-db (2.8.3-2ubuntu0.1) ...\n",
+            "Processing triggers for hicolor-icon-theme (0.17-2) ...\n",
+            "Processing triggers for mime-support (3.60ubuntu1) ...\n",
+            "Processing triggers for libc-bin (2.27-3ubuntu1.3) ...\n",
+            "/sbin/ldconfig.real: /usr/local/lib/python3.7/dist-packages/ideep4py/lib/libmkldnn.so.0 is not a symbolic link\n",
+            "\n",
+            "cp: '/usr/lib/chromium-browser/chromedriver' and '/usr/bin/chromedriver' are the same file\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install selenium\n",
+        "!pip install BeautifulSoup4\n",
+        "!apt-get update # to update ubuntu to correctly run apt install\n",
+        "!apt install chromium-chromedriver\n",
+        "!cp /usr/lib/chromium-browser/chromedriver /usr/bin"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "OevF1kB6kxKt"
+      },
+      "source": [
+        "# Import Relevant Libraries"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YoL_nRBJkydg",
+        "outputId": "4f342f14-c458-4068-9714-0fabd03a95aa"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.7/dist-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.7) or chardet (3.0.4) doesn't match a supported version!\n",
+            "  RequestsDependencyWarning)\n"
+          ]
+        }
+      ],
+      "source": [
+        "import  numpy as np \n",
+        "import  matplotlib.pyplot as plt \n",
+        "import  pandas as pd\n",
+        "import  os\n",
+        "import  re \n",
+        "from    selenium import webdriver\n",
+        "from    selenium.webdriver.common.keys import Keys\n",
+        "from    selenium.webdriver.support import expected_conditions as EC\n",
+        "from    selenium.webdriver.support.ui import WebDriverWait\n",
+        "from    selenium.webdriver.common.by import By\n",
+        "from    selenium.webdriver.common.action_chains import ActionChains\n",
+        "import  time\n",
+        "import  urllib3\n",
+        "from    bs4 import BeautifulSoup\n",
+        "import  csv\n",
+        "import  requests \n",
+        "from    urllib import request\n",
+        "from    google.colab import files\n",
+        "import  sys\n",
+        "from    selenium import webdriver\n",
+        "import  json \n",
+        "from    urllib.request import urlopen"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6oU4H6XNYZW5",
+        "outputId": "8bb256df-18b0-439c-92b0-94e8a60f7e9e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mounted at /content/gdrive\n"
+          ]
+        }
+      ],
+      "source": [
+        "from google.colab import drive \n",
+        "drive.mount('/content/gdrive')\n",
+        "df=pd.read_csv('gdrive/My Drive/Colab Notebooks/FYP/Reuters List.csv')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZUCLUTK5wT10"
+      },
+      "source": [
+        "# Import the File"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "C-ta3Lirk1Ux"
+      },
+      "source": [
+        "# Web Scraper"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "c1vpoQAOk1CJ",
+        "outputId": "ed6b5e54-132c-4e1f-8b06-bdfd666cc22a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The Mosaic Company\n",
+            "https://www.reuters.com/companies/MOS.N/news\n",
+            "The Mosaic Company.csv\n",
+            "/bin/bash: -c: line 0: syntax error near unexpected token `('\n",
+            "/bin/bash: -c: line 0: `cp '0.csv'.format(company_name) \"gdrive/My Drive/Colab Notebooks/FYP/REUTERS\"'\n"
+          ]
+        }
+      ],
+      "source": [
+        "for index, row in df.iloc[0:1].iterrows():\n",
+        "    sys.path.insert(0,'/usr/lib/chromium-browser/chromedriver')\n",
+        "    chrome_options = webdriver.ChromeOptions()\n",
+        "    chrome_options.add_argument('--headless')\n",
+        "    chrome_options.add_argument('--no-sandbox')\n",
+        "    chrome_options.add_argument('--disable-dev-shm-usage')\n",
+        "    driver = webdriver.Chrome('chromedriver',options=chrome_options)\n",
+        "    company_name = row['description']\n",
+        "    print(company_name)\n",
+        "    url = row['url']\n",
+        "    \n",
+        "    if not pd.isna(url):\n",
+        "      print(url)\n",
+        "      driver.get(url)\n",
+        "      #wait = WebDriverWait(driver, 40)\n",
+        "      #button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id=\"accept-recommended-btn-handler\"]')))\n",
+        "      #driver.execute_script(\"arguments[0].click()\", button)\n",
+        "      \n",
+        "      scrollNumber = 100\n",
+        "\n",
+        "      for i in range(0, 100):\n",
+        "      \n",
+        "        driver.execute_script(\"window.scrollTo(0, document.body.scrollHeight);\")\n",
+        "        # time.sleep(3)\n",
+        "      \n",
+        "      html = driver.page_source\n",
+        "      f = open('{0}.html'.format(company_name), 'w')\n",
+        "      f.write(html.encode('utf-8').decode('ascii', 'ignore'))\n",
+        "      f.close()\n",
+        "      driver.close()\n",
+        "      http=urllib3.PoolManager()\n",
+        "      data = open('{0}.html'.format(company_name),'r')\n",
+        "      \n",
+        "      soup = BeautifulSoup(data, 'html.parser')\n",
+        "      data1 = soup.find('div', attrs = {'class': 'FeedScroll-feed-container-106s7'})\n",
+        "      \n",
+        "      links = []\n",
+        "      for link in data1.find_all('a'): \n",
+        "        links.append(link.get('href'))\n",
+        "      \n",
+        "      links = list(dict.fromkeys(links))\n",
+        "\n",
+        "      locals()[\"df\" + str(company_name)] = pd.DataFrame(columns = ['Date', 'Headline', 'Text'])\n",
+        "\n",
+        "      for link in links:\n",
+        "        try:\n",
+        "          url = link\n",
+        "          page = urlopen(url)\n",
+        "          html_bytes = page.read()\n",
+        "          html = html_bytes.decode(\"utf-8\")\n",
+        "          soup = BeautifulSoup(html, 'html.parser')\n",
+        "          try:\n",
+        "              head = soup.find('h1', attrs = {'class': 'Text__text___3eVx1j Text__dark-grey___AS2I_p Text__medium___1ocDap Text__heading_2___sUlNJP Heading__base___1dDlXY Heading__heading_2___3f_bIW'})\n",
+        "              headline = head.string\n",
+        "              date = soup.find('span', attrs = {'class': 'DateLine__date___12trWy'})\n",
+        "              final_date = date.string\n",
+        "              text = soup.find('div', attrs = {'class': 'ArticleBody__content___2gQno2 paywall-article'})\n",
+        "              paragraphs = text.find_all('p')\n",
+        "              text_final = \"\"\n",
+        "              for paragraph in paragraphs:\n",
+        "                  text_final = text_final + paragraph.getText()\n",
+        "          except:\n",
+        "              try:\n",
+        "                  head = soup.find('h1', attrs = {'class': 'Headline-headline-2FXIq Headline-black-OogpV ArticleHeader-headline-NlAqj'})\n",
+        "                  headline = head.string\n",
+        "                  date = json.loads(soup.select_one('[type=\"application/ld+json\"]').contents[0])\n",
+        "                  final_date = date[\"datePublished\"]\n",
+        "                  text = soup.find_all('p', attrs = {'class': 'Paragraph-paragraph-2Bgue ArticleBody-para-TD_9x'})\n",
+        "                  text_final = \"\"\n",
+        "                  for paragraph in text:\n",
+        "                    text_final = text_final + paragraph.getText()\n",
+        "              except:\n",
+        "                  pass \n",
+        "        except:\n",
+        "          pass\n",
+        "      \n",
+        "        locals()[\"df2\" + str(company_name)] = pd.DataFrame({\"Date\":[final_date], \"Headline\":[headline], \"Text\":[text_final]})\n",
+        "        locals()[\"df\" + str(company_name)] = locals()[\"df\" + str(company_name)].append(locals()[\"df2\" + str(company_name)])\n",
+        "      \n",
+        "      locals()[\"df\" + str(company_name)].to_csv('{0}.csv'.format(company_name))\n",
+        "      # [\"df\" + str(company_name)].to_csv('{0}.csv'.format(company_name))\n",
+        "      # files.download('{0}.csv'.format(company_name))\n",
+        "      text = '{0}.csv'.format(company_name)\n",
+        "      print(text)\n",
+        "      !cp '{0}.csv'.format(company_name) \"gdrive/My Drive/Colab Notebooks/FYP/REUTERS\""
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "collapsed_sections": [],
+      "machine_shape": "hm",
+      "name": "Web Scraper - Reuters.ipynb",
+      "provenance": []
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.9.1"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
